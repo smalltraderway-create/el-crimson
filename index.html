@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EL CRIMSON Design Studio — thoughtful design, practical planning, and creative solutions.">
+  <meta name="description" content="EL CRIMSON Design Studio — Architectural, Interior and Furniture Drafting Studio.">
   <title>EL CRIMSON — Design Studio</title>
   <style>
     :root {
@@ -53,24 +53,26 @@
     .about-grid .media-frame { border-color: var(--line); background: #e4ded2; }
     .about-grid .media-frame img { width: 100%; height: 380px; object-fit: cover; }
     .about-text p { color: #625d54; font-size: 14px; }
-    .statement { font: 400 26px/1.35 var(--serif); margin: 0 0 20px; }
+    .statement { font: 400 24px/1.35 var(--serif); margin: 0 0 20px; }
     .services { background: var(--cream); }
     .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .service { background: var(--cream); padding: 32px 28px 36px; min-height: 230px; }
     .number { color: #a58c58; font: 22px var(--serif); }
-    .service h3 { font: 400 24px var(--serif); margin: 24px 0 10px; }
+    .service h3 { font: 400 22px var(--serif); margin: 24px 0 10px; }
     .service p { color: var(--muted); font-size: 12px; margin: 0; }
     .portfolio-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 26px; }
     .project .media-frame { border-color: var(--line); background: #e2ddd3; }
     .project .media-frame img { width: 100%; height: 310px; object-fit: cover; transition: transform .4s ease; }
     .project:hover .media-frame img { transform: scale(1.03); }
     .project-meta { display: flex; justify-content: space-between; gap: 15px; padding-top: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-    .project-meta h3 { font: 400 22px var(--serif); margin: 0; }
+    .project-meta h3 { font: 400 20px var(--serif); margin: 0; }
     .project-meta span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; padding-top: 6px; }
     .team { background: var(--cream); }
-    .team-card { border: 1px solid var(--line); padding: 26px; display: grid; grid-template-columns: 100px 1fr; gap: 22px; align-items: center; max-width: 520px; }
-    .avatar { height: 100px; border: 1px dashed #a99a7a; display: grid; place-items: center; color: #887a5c; font-size: 10px; text-align: center; }
-    .team-card h3 { font: 400 23px var(--serif); margin: 0 0 4px; }
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .team-card { border: 1px solid var(--line); padding: 26px; display: grid; grid-template-columns: 100px 1fr; gap: 22px; align-items: center; background: var(--white); }
+    .avatar { height: 100px; width: 100px; border-radius: 4px; overflow: hidden; border: 1px solid #a99a7a; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-card h3 { font: 400 20px var(--serif); margin: 0 0 4px; }
     .team-card p { color: var(--muted); font-size: 11px; margin: 0; }
     .contact { background: var(--ink); color: var(--white); }
     .contact .section-head p { color: #bcb5a8; }
@@ -87,7 +89,7 @@
       .links { display: none; position: absolute; top: 70px; left: 0; right: 0; padding: 20px 24px 24px; background: var(--ink); flex-direction: column; align-items: flex-start; gap: 18px; border-top: 1px solid #555; }
       .links.open { display: flex; }
       .hero { padding: 65px 0 55px; }
-      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero-grid, .about-grid, .team-grid { grid-template-columns: 1fr; gap: 35px; }
       .hero .media-frame img, .about-grid .media-frame img { height: 280px; }
       section { padding: 70px 0; }
       .section-head { display: block; margin-bottom: 30px; }
@@ -121,10 +123,10 @@
     <section class="hero" id="home">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Design · Planning · Creativity</div>
+          <div class="eyebrow">Architectural, Interior and Furniture Drafting Studio</div>
           <h1>Shape Your Future</h1>
           <p class="hero-tagline">Dream it. Plan it. Achieve it.</p>
-          <p class="hero-copy">Thoughtful design and creative solutions for spaces and everyday living. We turn ideas into purposeful designs through creativity, planning, and attention to detail.</p>
+          <p class="hero-copy">We are a multidisciplinary architectural, interior, and furniture design studio operating 100% remotely to support homeowners, business owners, architects, and contractors worldwide[cite: 22].</p>
           <div class="actions">
             <a class="btn" href="#portfolio">Explore Our Work</a>
             <a class="btn btn-outline" href="#contact">Start a Project</a>
@@ -142,10 +144,10 @@
           <img src="19. R. Keluarga Revisi.jpeg" alt="Modern Family Room Interior by El Crimson">
         </div>
         <div class="about-text">
-          <div class="eyebrow">About El Crimson</div>
-          <h2 class="statement">Good design begins with understanding the way people live, work, and experience a space.</h2>
-          <p>EL CRIMSON is a design studio focused on thoughtful planning and practical creative solutions. We approach every project with curiosity, attention to detail, and a commitment to balancing visual character with everyday function.</p>
-          <p>From residential environments to commercial spaces and furniture concepts, our goal is to turn each client's vision into a clear and considered design.</p>
+          <div class="eyebrow">About Us</div>
+          <h2 class="statement">Transforming rough concepts into clean, build-ready plans through precise 2D CAD and 3D modeling[cite: 22].</h2>
+          <p>Led by a collaborative duo of a technical drafting specialist and a civil engineering graduate, our studio ensures dual-tier quality control on every project. We deliver accurate spatial layouts, bespoke furniture detailing, and clear technical documentation seamlessly across time zones[cite: 22].</p>
+          <p><strong>Our Philosophy:</strong> No design is out of reach. Every stroke of art is born from perspective, fueled by an active imagination, and perfected by precision[cite: 24].</p>
           <a class="btn" href="#services">Discover Our Services</a>
         </div>
       </div>
@@ -154,13 +156,25 @@
     <section class="services" id="services">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">What We Do</div><h2>Our Services</h2></div>
-          <p>Design support shaped around your needs, your space, and the way you want to use it.</p>
+          <div><div class="eyebrow">Mission & Vision</div><h2>Our Expertise & Mission</h2></div>
+          <p>Versatile design, accountable engineering standards, and professional remote collaboration worldwide[cite: 23].</p>
         </div>
         <div class="service-grid">
-          <article class="service"><div class="number">01</div><h3>Residential Design</h3><p>Functional and comfortable living spaces shaped around individual needs, lifestyle, and character.</p></article>
-          <article class="service"><div class="number">02</div><h3>Café & Commercial Design</h3><p>Distinctive commercial environments that balance aesthetics, functionality, and customer experience.</p></article>
-          <article class="service"><div class="number">03</div><h3>Furniture Design</h3><p>Furniture concepts that bring together visual identity, practicality, proportion, and thoughtful detail.</p></article>
+          <article class="service">
+            <div class="number">01</div>
+            <h3>Versatile & Creative Design</h3>
+            <p>Transform ideas for residences, cafes, and custom furniture into innovative, functional, and build-ready 2D CAD and 3D plans[cite: 23].</p>
+          </article>
+          <article class="service">
+            <div class="number">02</div>
+            <h3>Accountable Engineering</h3>
+            <p>Uphold strict responsibility and dual-tier quality control on every spatial layout and furniture detail for structural reliability[cite: 23].</p>
+          </article>
+          <article class="service">
+            <div class="number">03</div>
+            <h3>Remote Collaboration</h3>
+            <p>Deliver transparent communication, timely execution, and dedicated support seamlessly across global time zones[cite: 23].</p>
+          </article>
         </div>
       </div>
     </section>
@@ -169,7 +183,7 @@
       <div class="wrap">
         <div class="section-head">
           <div><div class="eyebrow">Selected Work</div><h2>Our Portfolio</h2></div>
-          <p>A selection of projects that reflects our approach to design, planning, and creative problem-solving.</p>
+          <p>A selection of projects reflecting our approach to design, planning, and creative problem-solving.</p>
         </div>
         <div class="portfolio-grid">
           <article class="project">
@@ -181,11 +195,11 @@
             <div class="project-meta"><h3>Minimalist Corner Bedroom</h3><span>Residential</span></div>
           </article>
           <article class="project">
-            <div class="media-frame"><img src="4.jpg" alt="Floating Desk and Wardrobe Furniture Design"></div>
+            <div class="media-frame"><img src="4.jpg" alt="Custom Desk and Wardrobe Set"></div>
             <div class="project-meta"><h3>Custom Desk & Wardrobe Set</h3><span>Furniture</span></div>
           </article>
           <article class="project">
-            <div class="media-frame"><img src="1.jpg" alt="Compact Study and Living Space"></div>
+            <div class="media-frame"><img src="1.jpg" alt="Compact Living and Study Space"></div>
             <div class="project-meta"><h3>Compact Living & Study Space</h3><span>Residential</span></div>
           </article>
         </div>
@@ -195,12 +209,26 @@
     <section class="team" id="team">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">The People Behind The Work</div><h2>Our Team</h2></div>
-          <p>A collaborative team bringing ideas, skills, and different perspectives into every project.</p>
+          <div><div class="eyebrow">The Organization</div><h2>Our Team</h2></div>
+          <p>The collaborative duo behind EL CRIMSON Design Studio[cite: 22, 25].</p>
         </div>
-        <div class="team-card">
-          <div class="avatar">PROFILE<br>PHOTO</div>
-          <div><h3>Team Member Name</h3><p>Position / Professional Role</p><p style="margin-top:10px">Add a short professional introduction here.</p></div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="avatar"><img src="Daniel Triska Purna A.jpg" alt="Daniel Triska Purna A."></div>
+            <div>
+              <h3>Daniel Triska Purna A.</h3>
+              <p><strong>Lead Conceptual & 3D Designer</strong></p>
+              <p style="margin-top:6px">Shapes initial design ideas into immersive 3D modeling and practical structural planning.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="avatar"><img src="Dean Aldrin R..jpg" alt="Dean Aldrin R."></div>
+            <div>
+              <h3>Dean Aldrin R.</h3>
+              <p><strong>Lead 2D Designer & Client Coordinator</strong>[cite: 25]</p>
+              <p style="margin-top:6px">Drives creative conceptualization, precision 2D CAD technical detailing, and client coordination[cite: 25].</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -209,19 +237,19 @@
       <div class="wrap">
         <div class="section-head">
           <div><div class="eyebrow">Have a Project in Mind?</div><h2>Let's Create<br>Something Together.</h2></div>
-          <p>Tell us a little about your project. We'd be happy to hear your ideas and discuss how we can help bring them to life.</p>
+          <p>Get in touch with our remote-first team dedicated to fast, frictionless design and precise technical execution[cite: 26].</p>
         </div>
         <div class="contact-panel">
-          <div><h3>Start a Conversation.</h3><p>Replace the contact details below with your official company information.</p></div>
-          <a class="btn" href="mailto:hello@example.com">Email Our Studio</a>
+          <div><h3>Start a Conversation.</h3><p>Kec. Kedungkandang, Kota Malang, Jawa Timur 65138[cite: 20]</p></div>
+          <a class="btn" href="mailto:elcrimsonstudio@gmail.com">Email Our Studio</a>
         </div>
-        <p style="font-size:11px;color:#aaa296;margin-top:22px">Email: hello@example.com &nbsp; · &nbsp; WhatsApp: +00 000 0000 0000</p>
+        <p style="font-size:11px;color:#aaa296;margin-top:22px">Email: elcrimsonstudio@gmail.com &nbsp; · &nbsp; WhatsApp: +62 821-4270-0832[cite: 20]</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner"><span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span><span>Dream it. Plan it. Achieve it.</span></div>
+    <div class="wrap footer-inner"><span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span><span>Dream it. Plan it. Achieve it.[cite: 20]</span></div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
