@@ -21,37 +21,37 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
     .topbar { background: var(--ink); color: var(--white); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,.12); }
     .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .brand { display: flex; align-items: center; gap: 13px; letter-spacing: .13em; font-size: 13px; font-weight: 700; }
-    .logo-slot { width: 43px; height: 43px; border: 1px dashed rgba(255,255,255,.55); display: grid; place-items: center; color: #d6c8a8; font-size: 9px; letter-spacing: .04em; }
+    .logo-slot { width: 46px; height: 46px; border-radius: 4px; overflow: hidden; background: #fbfaf7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-slot img { width: 100%; height: 100%; object-fit: cover; }
     .brand small { display: block; color: #bcb5a8; font-size: 9px; letter-spacing: .24em; font-weight: 400; margin-top: 3px; }
     .links { display: flex; align-items: center; gap: 27px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #e4dfd6; }
     .links a:hover { color: var(--gold); }
-    .menu-btn { display: none; border: 1px solid #777; background: transparent; color: white; padding: 8px 11px; }
+    .menu-btn { display: none; border: 1px solid #777; background: transparent; color: white; padding: 8px 11px; cursor: pointer; }
     .hero { background: var(--ink); color: var(--white); padding: 84px 0 76px; }
     .eyebrow { color: var(--gold); letter-spacing: .24em; text-transform: uppercase; font-size: 10px; font-weight: 700; }
     .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 55px; align-items: center; }
-    h1 { font: 400 clamp(46px, 6vw, 78px)/1.04 var(--serif); letter-spacing: -.045em; margin: 22px 0; max-width: 690px; }
-    h1 em { color: var(--gold); font-weight: 400; }
+    h1 { font: 400 clamp(46px, 6vw, 78px)/1.04 var(--serif); letter-spacing: -.045em; margin: 22px 0 12px; max-width: 690px; }
+    .hero-tagline { font: italic 400 clamp(22px, 2.5vw, 30px)/1.3 var(--serif); color: var(--gold); margin: 0 0 22px; }
     .hero-copy { color: #c9c3b9; max-width: 480px; font-size: 15px; }
     .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
     .btn { display: inline-block; padding: 14px 20px; background: var(--gold); color: var(--ink); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--gold); transition: .2s; }
     .btn:hover { background: transparent; color: var(--gold); }
     .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,.35); }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .image-placeholder { min-height: 390px; border: 1px dashed rgba(210,183,123,.65); background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.015)); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 28px; color: #d6cbb6; }
-    .image-placeholder .symbol { font-size: 30px; margin-bottom: 12px; opacity: .8; }
-    .image-placeholder strong { font-size: 11px; letter-spacing: .17em; text-transform: uppercase; }
-    .image-placeholder span { font-size: 11px; color: #a9a194; margin-top: 7px; }
+    .media-frame { border: 1px solid rgba(210,183,123,.35); overflow: hidden; background: #191817; }
+    .hero .media-frame img { width: 100%; height: 420px; object-fit: cover; }
     section { padding: 100px 0; }
     .section-head { display: flex; justify-content: space-between; gap: 35px; align-items: end; margin-bottom: 45px; }
     .section-head h2 { font: 400 clamp(36px, 4vw, 53px)/1.1 var(--serif); letter-spacing: -.035em; margin: 12px 0 0; }
     .section-head p { max-width: 390px; color: var(--muted); font-size: 13px; margin: 0; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
-    .about-grid .image-placeholder { min-height: 360px; background: #e4ded2; border-color: #b8aa8c; color: #746b5b; }
-    .about-grid .image-placeholder span { color: #8b8274; }
+    .about-grid .media-frame { border-color: var(--line); background: #e4ded2; }
+    .about-grid .media-frame img { width: 100%; height: 380px; object-fit: cover; }
     .about-text p { color: #625d54; font-size: 14px; }
     .statement { font: 400 26px/1.35 var(--serif); margin: 0 0 20px; }
     .services { background: var(--cream); }
@@ -61,8 +61,9 @@
     .service h3 { font: 400 24px var(--serif); margin: 24px 0 10px; }
     .service p { color: var(--muted); font-size: 12px; margin: 0; }
     .portfolio-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 26px; }
-    .project .image-placeholder { min-height: 290px; background: #e2ddd3; border-color: #b8ad98; color: #716959; }
-    .project .image-placeholder span { color: #8a8275; }
+    .project .media-frame { border-color: var(--line); background: #e2ddd3; }
+    .project .media-frame img { width: 100%; height: 310px; object-fit: cover; transition: transform .4s ease; }
+    .project:hover .media-frame img { transform: scale(1.03); }
     .project-meta { display: flex; justify-content: space-between; gap: 15px; padding-top: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
     .project-meta h3 { font: 400 22px var(--serif); margin: 0; }
     .project-meta span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; padding-top: 6px; }
@@ -87,14 +88,14 @@
       .links.open { display: flex; }
       .hero { padding: 65px 0 55px; }
       .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 35px; }
-      .image-placeholder { min-height: 270px; }
+      .hero .media-frame img, .about-grid .media-frame img { height: 280px; }
       section { padding: 70px 0; }
       .section-head { display: block; margin-bottom: 30px; }
       .section-head p { margin-top: 18px; }
       .service-grid { grid-template-columns: 1fr; }
       .service { min-height: 0; }
       .portfolio-grid { grid-template-columns: 1fr; gap: 30px; }
-      .project .image-placeholder { min-height: 250px; }
+      .project .media-frame img { height: 250px; }
       .contact-panel { display: block; }
       .contact-panel .btn { margin-top: 24px; }
     }
@@ -104,7 +105,9 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="EL CRIMSON home">
-        <span class="logo-slot">LOGO</span>
+        <span class="logo-slot">
+          <img src="El Crimson Architectural Design Studio Logo.png" alt="El Crimson Design Studio Logo">
+        </span>
         <span>EL CRIMSON<small>DESIGN STUDIO</small></span>
       </a>
       <button class="menu-btn" aria-label="Toggle navigation" onclick="document.querySelector('.links').classList.toggle('open')">MENU ☰</button>
@@ -119,22 +122,25 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow">Design · Planning · Creativity</div>
-          <h1>Shape Your Vision.<br><em>Create Your Future.</em></h1>
+          <h1>Shape Your Future</h1>
+          <p class="hero-tagline">Dream it. Plan it. Achieve it.</p>
           <p class="hero-copy">Thoughtful design and creative solutions for spaces and everyday living. We turn ideas into purposeful designs through creativity, planning, and attention to detail.</p>
           <div class="actions">
             <a class="btn" href="#portfolio">Explore Our Work</a>
             <a class="btn btn-outline" href="#contact">Start a Project</a>
           </div>
         </div>
-        <div class="image-placeholder">
-          <div class="symbol">◇</div><strong>Hero Image Placeholder</strong><span>Replace this area with your strongest project photograph</span>
+        <div class="media-frame">
+          <img src="13. Ruang Tamu Revisi.jpeg" alt="Double-Height Living Room Design by El Crimson">
         </div>
       </div>
     </section>
 
     <section id="about">
       <div class="wrap about-grid">
-        <div class="image-placeholder"><div class="symbol">◇</div><strong>Studio / About Image</strong><span>Add a studio, team, or project photograph</span></div>
+        <div class="media-frame">
+          <img src="19. R. Keluarga Revisi.jpeg" alt="Modern Family Room Interior by El Crimson">
+        </div>
         <div class="about-text">
           <div class="eyebrow">About El Crimson</div>
           <h2 class="statement">Good design begins with understanding the way people live, work, and experience a space.</h2>
@@ -166,10 +172,22 @@
           <p>A selection of projects that reflects our approach to design, planning, and creative problem-solving.</p>
         </div>
         <div class="portfolio-grid">
-          <article class="project"><div class="image-placeholder"><div class="symbol">◇</div><strong>Project Image 01</strong><span>Insert project photograph or rendering</span></div><div class="project-meta"><h3>Project Name</h3><span>Residential</span></div></article>
-          <article class="project"><div class="image-placeholder"><div class="symbol">◇</div><strong>Project Image 02</strong><span>Insert project photograph or rendering</span></div><div class="project-meta"><h3>Project Name</h3><span>Café / Commercial</span></div></article>
-          <article class="project"><div class="image-placeholder"><div class="symbol">◇</div><strong>Project Image 03</strong><span>Insert project photograph or rendering</span></div><div class="project-meta"><h3>Project Name</h3><span>Furniture</span></div></article>
-          <article class="project"><div class="image-placeholder"><div class="symbol">◇</div><strong>Project Image 04</strong><span>Insert project photograph or rendering</span></div><div class="project-meta"><h3>Project Name</h3><span>Other Projects</span></div></article>
+          <article class="project">
+            <div class="media-frame"><img src="3.jpg" alt="Bintang Frozen Commercial Facade"></div>
+            <div class="project-meta"><h3>Bintang Frozen Store</h3><span>Commercial</span></div>
+          </article>
+          <article class="project">
+            <div class="media-frame"><img src="Kamar Pojok 1.jpg" alt="Minimalist Corner Bedroom Interior"></div>
+            <div class="project-meta"><h3>Minimalist Corner Bedroom</h3><span>Residential</span></div>
+          </article>
+          <article class="project">
+            <div class="media-frame"><img src="4.jpg" alt="Floating Desk and Wardrobe Furniture Design"></div>
+            <div class="project-meta"><h3>Custom Desk & Wardrobe Set</h3><span>Furniture</span></div>
+          </article>
+          <article class="project">
+            <div class="media-frame"><img src="1.jpg" alt="Compact Study and Living Space"></div>
+            <div class="project-meta"><h3>Compact Living & Study Space</h3><span>Residential</span></div>
+          </article>
         </div>
       </div>
     </section>
@@ -203,7 +221,7 @@
   </main>
 
   <footer>
-    <div class="wrap footer-inner"><span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span><span>Thoughtful design. Purposeful spaces.</span></div>
+    <div class="wrap footer-inner"><span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span><span>Dream it. Plan it. Achieve it.</span></div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
