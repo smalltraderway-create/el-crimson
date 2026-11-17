@@ -22,12 +22,13 @@
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    button { font: inherit; }
     .wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
     .topbar { background: var(--ink); color: var(--white); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,.12); }
     .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .brand { display: flex; align-items: center; gap: 13px; letter-spacing: .13em; font-size: 13px; font-weight: 700; }
-    .logo-slot { width: 46px; height: 46px; border-radius: 4px; overflow: hidden; background: #fbfaf7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .logo-slot img { width: 100%; height: 100%; object-fit: cover; }
+    .logo-slot { display: block; width: 54px; height: 36px; border-radius: 3px; overflow: hidden; background: transparent; flex-shrink: 0; }
+    .logo-slot img { width: 100%; height: 100%; object-fit: contain; }
     .brand small { display: block; color: #bcb5a8; font-size: 9px; letter-spacing: .24em; font-weight: 400; margin-top: 3px; }
     .links { display: flex; align-items: center; gap: 27px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #e4dfd6; }
     .links a:hover { color: var(--gold); }
@@ -44,8 +45,8 @@
     .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,.35); }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
     .media-frame { border: 1px solid rgba(210,183,123,.35); overflow: hidden; background: #191817; }
-    .hero .media-frame img { width: 100%; height: 420px; object-fit: cover; }
-    section { padding: 100px 0; }
+    .hero .media-frame img { width: 100%; height: auto; }
+    section { padding: 100px 0; scroll-margin-top: 82px; }
     .section-head { display: flex; justify-content: space-between; gap: 35px; align-items: end; margin-bottom: 45px; }
     .section-head h2 { font: 400 clamp(36px, 4vw, 53px)/1.1 var(--serif); letter-spacing: -.035em; margin: 12px 0 0; }
     .section-head p { max-width: 390px; color: var(--muted); font-size: 13px; margin: 0; }
@@ -60,13 +61,19 @@
     .number { color: #a58c58; font: 22px var(--serif); }
     .service h3 { font: 400 22px var(--serif); margin: 24px 0 10px; }
     .service p { color: var(--muted); font-size: 12px; margin: 0; }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 26px; }
-    .project .media-frame { border-color: var(--line); background: #e2ddd3; }
-    .project .media-frame img { width: 100%; height: 310px; object-fit: cover; transition: transform .4s ease; }
-    .project:hover .media-frame img { transform: scale(1.03); }
-    .project-meta { display: flex; justify-content: space-between; gap: 15px; padding-top: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-    .project-meta h3 { font: 400 20px var(--serif); margin: 0; }
-    .project-meta span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; padding-top: 6px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+    .project { display: flex; flex-direction: column; }
+    .project-cover { padding: 0; width: 100%; border-color: var(--line); background: #e2ddd3; cursor: zoom-in; }
+    .project-cover img { width: 100%; height: 250px; object-fit: cover; transition: transform .5s ease; }
+    .project-cover:hover img { transform: scale(1.03); }
+    .project-meta { padding: 14px 0 12px; border-bottom: 1px solid var(--line); }
+    .project-meta h3 { font: 400 20px var(--serif); margin: 0 0 3px; }
+    .project-meta span { display: block; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
+    .thumb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+    .thumb { padding: 0; width: 100%; border: 1px solid var(--line); overflow: hidden; background: #e2ddd3; cursor: zoom-in; }
+    .thumb img { width: 100%; height: 72px; object-fit: cover; transition: transform .4s ease; }
+    .thumb:hover img { transform: scale(1.07); }
+    .shot:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
     .team { background: var(--cream); }
     .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
     .team-card { border: 1px solid var(--line); padding: 26px; display: grid; grid-template-columns: 100px 1fr; gap: 22px; align-items: center; background: var(--white); }
@@ -74,30 +81,47 @@
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
     .team-card h3 { font: 400 20px var(--serif); margin: 0 0 4px; }
     .team-card p { color: var(--muted); font-size: 11px; margin: 0; }
+    .team-role { color: var(--ink); }
+    .team-desc { margin-top: 6px; }
     .contact { background: var(--ink); color: var(--white); }
     .contact .section-head p { color: #bcb5a8; }
     .contact-panel { border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); padding: 32px 0; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
     .contact-panel h3 { font: 400 clamp(28px, 4vw, 43px) var(--serif); margin: 0; }
     .contact-panel p { color: #bcb5a8; font-size: 12px; margin: 8px 0 0; }
+    .contact-line { font-size: 11px; color: #aaa296; margin-top: 22px; }
     footer { background: #1b1a19; color: #c8c1b6; padding: 28px 0; font-size: 10px; letter-spacing: .08em; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .footer-inner span:last-child { color: #91897d; }
+    .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(20,19,18,.95); }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(1100px, 100%); max-height: calc(100vh - 110px); object-fit: contain; border: 1px solid rgba(210,183,123,.4); }
+    .lightbox-close { position: absolute; top: 20px; right: 22px; padding: 9px 14px; border: 1px solid rgba(255,255,255,.4); background: transparent; color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
+    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+    @media (max-width: 980px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid .project:last-child { grid-column: span 2; }
+      .portfolio-grid .project:last-child .project-cover img { height: 320px; }
+      .portfolio-grid .project:last-child .thumb img { height: 96px; }
+    }
     @media (max-width: 760px) {
       .wrap { width: min(100% - 34px, 560px); }
       .nav { min-height: 70px; }
       .menu-btn { display: block; }
       .links { display: none; position: absolute; top: 70px; left: 0; right: 0; padding: 20px 24px 24px; background: var(--ink); flex-direction: column; align-items: flex-start; gap: 18px; border-top: 1px solid #555; }
       .links.open { display: flex; }
+      section { scroll-margin-top: 70px; }
       .hero { padding: 65px 0 55px; }
       .hero-grid, .about-grid, .team-grid { grid-template-columns: 1fr; gap: 35px; }
-      .hero .media-frame img, .about-grid .media-frame img { height: 280px; }
+      .about-grid .media-frame img { height: 280px; }
       section { padding: 70px 0; }
       .section-head { display: block; margin-bottom: 30px; }
       .section-head p { margin-top: 18px; }
       .service-grid { grid-template-columns: 1fr; }
       .service { min-height: 0; }
       .portfolio-grid { grid-template-columns: 1fr; gap: 30px; }
-      .project .media-frame img { height: 250px; }
+      .portfolio-grid .project:last-child { grid-column: auto; }
+      .project-cover img, .portfolio-grid .project:last-child .project-cover img { height: 250px; }
+      .portfolio-grid .project:last-child .thumb img { height: 72px; }
       .contact-panel { display: block; }
       .contact-panel .btn { margin-top: 24px; }
     }
@@ -108,13 +132,18 @@
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="EL CRIMSON home">
         <span class="logo-slot">
-          <img src="El Crimson Architectural Design Studio Logo.png" alt="El Crimson Design Studio Logo">
+          <img src="Asset/1.Logoperusahaan/Logo.webp" alt="El Crimson Design Studio logo" width="54" height="36">
         </span>
         <span>EL CRIMSON<small>DESIGN STUDIO</small></span>
       </a>
-      <button class="menu-btn" aria-label="Toggle navigation" onclick="document.querySelector('.links').classList.toggle('open')">MENU ☰</button>
-      <nav class="links">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#team">Team</a><a href="#contact">Contact</a>
+      <button class="menu-btn" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">MENU ☰</button>
+      <nav class="links" id="site-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -126,14 +155,14 @@
           <div class="eyebrow">Architectural, Interior and Furniture Drafting Studio</div>
           <h1>Shape Your Future</h1>
           <p class="hero-tagline">Dream it. Plan it. Achieve it.</p>
-          <p class="hero-copy">We are a multidisciplinary architectural, interior, and furniture design studio operating 100% remotely to support homeowners, business owners, architects, and contractors worldwide[cite: 15].</p>
+          <p class="hero-copy">We are a multidisciplinary architectural, interior, and furniture design studio operating 100% remotely to support homeowners, business owners, architects, and contractors worldwide.</p>
           <div class="actions">
             <a class="btn" href="#portfolio">Explore Our Work</a>
             <a class="btn btn-outline" href="#contact">Start a Project</a>
           </div>
         </div>
         <div class="media-frame">
-          <img src="13. Ruang Tamu Revisi.jpeg" alt="Double-Height Living Room Design by El Crimson">
+          <img src="Asset/2.Displayatasdisebelah(shapeyourfuture)/Herobaru.webp" alt="Double-height living room with a marble TV wall, timber shelving, and a mezzanine balcony" width="2752" height="1536" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -141,13 +170,13 @@
     <section id="about">
       <div class="wrap about-grid">
         <div class="media-frame">
-          <img src="19. R. Keluarga Revisi.jpeg" alt="Modern Family Room Interior by El Crimson">
+          <img src="Asset/6.Portountukrumahtinggal/Ruangtamu.webp" alt="Open living area with a double-height ceiling, mezzanine balcony, and indoor plants" loading="lazy" decoding="async">
         </div>
         <div class="about-text">
           <div class="eyebrow">About Us</div>
-          <h2 class="statement">Transforming rough concepts into clean, build-ready plans through precise 2D CAD and 3D modeling[cite: 15].</h2>
-          <p>Led by a collaborative duo of a technical drafting specialist and a civil engineering graduate, our studio ensures dual-tier quality control on every project. We deliver accurate spatial layouts, bespoke furniture detailing, and clear technical documentation seamlessly across time zones[cite: 15].</p>
-          <p><strong>Our Philosophy:</strong> No design is out of reach. Every stroke of art is born from perspective, fueled by an active imagination, and perfected by precision[cite: 17].</p>
+          <h2 class="statement">Transforming rough concepts into clean, build-ready plans through precise 2D CAD and 3D modeling.</h2>
+          <p>Led by a collaborative duo of a technical drafting specialist and a civil engineering graduate, our studio ensures dual-tier quality control on every project. We deliver accurate spatial layouts, bespoke furniture detailing, and clear technical documentation seamlessly across time zones.</p>
+          <p><strong>Our Philosophy:</strong> No design is out of reach. Every stroke of art is born from perspective, fueled by an active imagination, and perfected by precision.</p>
           <a class="btn" href="#services">Discover Our Services</a>
         </div>
       </div>
@@ -156,24 +185,24 @@
     <section class="services" id="services">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">Mission & Vision</div><h2>Our Expertise & Mission</h2></div>
-          <p>Versatile design, accountable engineering standards, and professional remote collaboration worldwide[cite: 16].</p>
+          <div><div class="eyebrow">Mission &amp; Vision</div><h2>Our Expertise &amp; Mission</h2></div>
+          <p>Versatile design, accountable engineering standards, and professional remote collaboration worldwide.</p>
         </div>
         <div class="service-grid">
           <article class="service">
             <div class="number">01</div>
-            <h3>Versatile & Creative Design</h3>
-            <p>Transform ideas for residences, cafes, and custom furniture into innovative, functional, and build-ready 2D CAD and 3D plans[cite: 16].</p>
+            <h3>Versatile &amp; Creative Design</h3>
+            <p>Transform ideas for residences, cafes, and custom furniture into innovative, functional, and build-ready 2D CAD and 3D plans.</p>
           </article>
           <article class="service">
             <div class="number">02</div>
             <h3>Accountable Engineering</h3>
-            <p>Uphold strict responsibility and dual-tier quality control on every spatial layout and furniture detail for structural reliability[cite: 16].</p>
+            <p>Uphold strict responsibility and dual-tier quality control on every spatial layout and furniture detail for structural reliability.</p>
           </article>
           <article class="service">
             <div class="number">03</div>
             <h3>Remote Collaboration</h3>
-            <p>Deliver transparent communication, timely execution, and dedicated support seamlessly across global time zones[cite: 16].</p>
+            <p>Deliver transparent communication, timely execution, and dedicated support seamlessly across global time zones.</p>
           </article>
         </div>
       </div>
@@ -187,20 +216,78 @@
         </div>
         <div class="portfolio-grid">
           <article class="project">
-            <div class="media-frame"><img src="3.jpg" alt="Bintang Frozen Commercial Facade"></div>
-            <div class="project-meta"><h3>Bintang Frozen Store</h3><span>Commercial</span></div>
+            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: Bintang Frozen store facade">
+              <img src="Asset/4.Portountukprojecttoko/1.webp" alt="Bintang Frozen store facade with timber signage, glass frontage, and a wooden cart" loading="lazy" decoding="async">
+            </button>
+            <div class="project-meta"><h3>Bintang Frozen Store</h3><span>Commercial · 5 Photos</span></div>
+            <div class="thumb-grid">
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: front elevation of Bintang Frozen">
+                <img src="Asset/4.Portountukprojecttoko/2.webp" alt="Front elevation of Bintang Frozen with a landscaped entrance" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: angled view of the Bintang Frozen shopfront">
+                <img src="Asset/4.Portountukprojecttoko/3.webp" alt="Angled view of the Bintang Frozen shopfront and outdoor cart" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: retail interior of Bintang Frozen">
+                <img src="Asset/4.Portountukprojecttoko/4.webp" alt="Bright retail interior with wine shelving and a timber counter" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: wine display inside Bintang Frozen">
+                <img src="Asset/4.Portountukprojecttoko/5.webp" alt="Wine display shelves and chest freezers inside Bintang Frozen" loading="lazy" decoding="async">
+              </button>
+            </div>
           </article>
+
           <article class="project">
-            <div class="media-frame"><img src="Kamar Pojok 1.jpg" alt="Minimalist Corner Bedroom Interior"></div>
-            <div class="project-meta"><h3>Minimalist Corner Bedroom</h3><span>Residential</span></div>
+            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: minimalist corner bedroom">
+              <img src="Asset/5.Portountukkamarkos/KamarPojok1.webp" alt="Minimalist corner bedroom with a timber wardrobe and sheer curtains" loading="lazy" decoding="async">
+            </button>
+            <div class="project-meta"><h3>Minimalist Boarding House</h3><span>Residential · 6 Photos</span></div>
+            <div class="thumb-grid">
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: compact boarding room">
+                <img src="Asset/5.Portountukkamarkos/Kamar1.webp" alt="Compact boarding room with a single bed and mirrored wardrobe" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: boarding room with floating desk">
+                <img src="Asset/5.Portountukkamarkos/Kamar2.webp" alt="Boarding room with a floating desk, window, and timber door" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: boarding room with ensuite bathroom">
+                <img src="Asset/5.Portountukkamarkos/Kamar3.webp" alt="Boarding room with an ensuite bathroom and built-in study desk" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: ensuite bathroom">
+                <img src="Asset/5.Portountukkamarkos/KamarMandi1.webp" alt="Ensuite bathroom with a walk-in shower and dark tiled floor" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: corner room with cove lighting">
+                <img src="Asset/5.Portountukkamarkos/KamarPojok2.webp" alt="Corner room with a wardrobe, gold cove lighting, and a single bed" loading="lazy" decoding="async">
+              </button>
+            </div>
           </article>
+
           <article class="project">
-            <div class="media-frame"><img src="4.jpg" alt="Custom Desk and Wardrobe Set"></div>
-            <div class="project-meta"><h3>Custom Desk & Wardrobe Set</h3><span>Furniture</span></div>
-          </article>
-          <article class="project">
-            <div class="media-frame"><img src="1.jpg" alt="Compact Living and Study Space"></div>
-            <div class="project-meta"><h3>Compact Living & Study Space</h3><span>Residential</span></div>
+            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: modern family house facade">
+              <img src="Asset/6.Portountukrumahtinggal/Tampakdepan1.webp" alt="Modern two-storey house facade with a pergola carport and breeze-block screen" loading="lazy" decoding="async">
+            </button>
+            <div class="project-meta"><h3>Modern Family House</h3><span>Residential · 8 Photos</span></div>
+            <div class="thumb-grid">
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: house front facade">
+                <img src="Asset/6.Portountukrumahtinggal/Tampakdepan2.webp" alt="House front facade with a covered carport and planted entrance courtyard" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: entrance and carport">
+                <img src="Asset/6.Portountukrumahtinggal/Tampakdepan3.webp" alt="Close view of the entrance, breeze-block wall, and carport" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: family room with timber feature wall">
+                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga1.webp" alt="Double-height family room with a slatted timber feature wall" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: family room with marble TV wall">
+                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga2.webp" alt="Family room with a marble TV wall and timber media console" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: living area with mezzanine">
+                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga3.webp" alt="Living area with a bookcase, TV wall, and mezzanine balcony" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: master bedroom">
+                <img src="Asset/6.Portountukrumahtinggal/Kamartidur.webp" alt="Master bedroom with a timber bed frame, wardrobe, and garden window" loading="lazy" decoding="async">
+              </button>
+              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: galley kitchen">
+                <img src="Asset/6.Portountukrumahtinggal/Dapur.webp" alt="Galley kitchen with a marble backsplash and timber cabinetry" loading="lazy" decoding="async">
+              </button>
+            </div>
           </article>
         </div>
       </div>
@@ -210,23 +297,23 @@
       <div class="wrap">
         <div class="section-head">
           <div><div class="eyebrow">The Organization</div><h2>Our Team</h2></div>
-          <p>The collaborative duo behind EL CRIMSON Design Studio[cite: 15, 18].</p>
+          <p>The collaborative duo behind EL CRIMSON Design Studio.</p>
         </div>
         <div class="team-grid">
           <div class="team-card">
-            <div class="avatar"><img src="Daniel Triska Purna A.jpg" alt="Daniel Triska Purna A."></div>
+            <div class="avatar"><img src="Asset/3.Fotountuknamatim/DanielTriskaPurna.A.webp" alt="Portrait of Daniel Triska Purna A." loading="lazy" decoding="async"></div>
             <div>
               <h3>Daniel Triska Purna A.</h3>
-              <p><strong>Lead Conceptual & 3D Designer</strong>[cite: 18]</p>
-              <p style="margin-top:6px">Shapes initial design ideas into immersive 3D modeling and practical structural planning[cite: 18].</p>
+              <p class="team-role"><strong>Lead Conceptual &amp; 3D Designer</strong></p>
+              <p class="team-desc">Shapes initial design ideas into immersive 3D modeling and practical structural planning.</p>
             </div>
           </div>
           <div class="team-card">
-            <div class="avatar"><img src="Dean Aldrin R..jpg" alt="Dean Aldrin R."></div>
+            <div class="avatar"><img src="Asset/3.Fotountuknamatim/DeanAldrin.R.webp" alt="Portrait of Dean Aldrin R." loading="lazy" decoding="async"></div>
             <div>
               <h3>Dean Aldrin R.</h3>
-              <p><strong>Lead 2D Designer & Client Coordinator</strong>[cite: 18]</p>
-              <p style="margin-top:6px">Drives creative conceptualization, precision 2D CAD technical detailing, and client coordination[cite: 18].</p>
+              <p class="team-role"><strong>Lead 2D Designer &amp; Client Coordinator</strong></p>
+              <p class="team-desc">Drives creative conceptualization, precision 2D CAD technical detailing, and client coordination.</p>
             </div>
           </div>
         </div>
@@ -237,20 +324,79 @@
       <div class="wrap">
         <div class="section-head">
           <div><div class="eyebrow">Have a Project in Mind?</div><h2>Let's Create<br>Something Together.</h2></div>
-          <p>Get in touch with our remote-first team dedicated to fast, frictionless design and precise technical execution[cite: 19].</p>
+          <p>Get in touch with our remote-first team dedicated to fast, frictionless design and precise technical execution.</p>
         </div>
         <div class="contact-panel">
-          <div><h3>Start a Conversation.</h3><p>Kec. Kedungkandang, Kota Malang, Jawa Timur 65138[cite: 14]</p></div>
+          <div><h3>Start a Conversation.</h3><p>Kec. Kedungkandang, Kota Malang, Jawa Timur 65138</p></div>
           <a class="btn" href="mailto:elcrimsonstudio@gmail.com">Email Our Studio</a>
         </div>
-        <p style="font-size:11px;color:#aaa296;margin-top:22px">Email: elcrimsonstudio@gmail.com &nbsp; · &nbsp; WhatsApp: +62 821-4270-0832[cite: 14]</p>
+        <p class="contact-line">Email: elcrimsonstudio@gmail.com &nbsp; · &nbsp; WhatsApp: +62 821-4270-0832</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner"><span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span><span>Dream it. Plan it. Achieve it.[cite: 14]</span></div>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span>
+      <span>Dream it. Plan it. Achieve it.</span>
+    </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="lightbox-close" type="button">Close ✕</button>
+    <img src="" alt="">
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    let lastFocused = null;
+
+    function openLightbox(button) {
+      const image = button.querySelector('img');
+      lastFocused = button;
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach((button) => {
+      button.addEventListener('click', () => openLightbox(button));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+  </script>
 </body>
 </html>
