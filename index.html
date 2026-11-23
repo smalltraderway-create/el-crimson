@@ -42,11 +42,15 @@
     .image-frame { overflow: hidden; background: #d8d2c7; }
     .image-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
     .image-frame:hover img { transform: scale(1.035); }
+    .gold-frame { border: 1px solid var(--gold); }
+    .drafting-frame { background: #fff; }
+    .drafting-frame img { object-fit: contain; }
+    .drafting-frame:hover img { transform: none; }
     .btn-gold { display:inline-flex; align-items:center; gap:.7rem; background:var(--gold); color:#211f1b; padding:.85rem 1.25rem; font-size:.75rem; font-weight:700; letter-spacing:.06em; transition:.2s; }
     .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); }
     .btn-outline-light { display:inline-flex; align-items:center; gap:.7rem; border:1px solid rgba(255,255,255,.42); color:#fff; padding:.85rem 1.25rem; font-size:.75rem; font-weight:600; letter-spacing:.06em; transition:.2s; }
     .btn-outline-light:hover { border-color:var(--gold); color:var(--gold-light); }
-    .service-card { border:1px solid var(--line-dark); background:#f7f4ed; }
+    .service-card { border:1px solid var(--gold); background:#f7f4ed; }
     .service-card ul li { position:relative; padding-left:1.1rem; }
     .service-card ul li:before { content:"✓"; position:absolute; left:0; color:#a98343; font-weight:700; }
     .nav-link { color:rgba(255,255,255,.82); font-size:.75rem; transition:color .2s; }
@@ -133,7 +137,7 @@
           <a href="#services" class="inline-flex items-center gap-3 text-xs font-bold tracking-wide text-[#94713b] mt-7">Discover Our Approach <span>→</span></a>
         </div>
         <div class="lg:col-span-8">
-          <div class="image-frame h-[300px] md:h-[430px]">
+          <div class="image-frame gold-frame h-[300px] md:h-[430px]">
             <img src="Asset/2.HeroImage/HeroImage.webp" loading="lazy" alt="Double-height living room with marble feature wall and warm timber joinery">
           </div>
           <p class="text-[.62rem] tracking-[.16em] uppercase text-stone-500 mt-3 text-right">Design perspective · Residential interior</p>
@@ -190,7 +194,7 @@
           </article>
 
           <article class="service-card">
-            <div class="image-frame h-48"><img src="Asset/6.Furniture&amp;TechnicalDrafting/TechnicalDrafting.webp" loading="lazy" alt="Section and foundation technical drawing in 2D CAD"></div>
+            <div class="image-frame drafting-frame h-48"><img src="Asset/6.Furniture&amp;TechnicalDrafting/TechnicalDrafting.webp" loading="lazy" alt="Section and foundation technical drawing in 2D CAD"></div>
             <div class="p-6 md:p-7">
               <span class="section-kicker">03 / Furniture</span>
               <h3 class="text-2xl mt-2 mb-3">Furniture Design &amp; Technical Drafting</h3>
@@ -215,9 +219,9 @@
             <p class="text-xs text-stone-600 mt-2">Project scope and rates are tailored to area, complexity, and required deliverables.</p>
           </div>
           <div class="grid sm:grid-cols-3 gap-3 md:max-w-[650px] w-full">
-            <div class="bg-[#f5f2eb] p-4"><p class="text-xs font-bold">01. Concept &amp; 3D Visual</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Layout options and 3D previews.</p></div>
+            <div class="bg-[#f5f2eb] p-4 border border-[#c5a568]"><p class="text-xs font-bold">01. Concept &amp; 3D Visual</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Layout options and 3D previews.</p></div>
             <div class="bg-[#f5f2eb] p-4 border border-[#c5a568]"><p class="text-xs font-bold">02. Complete Design</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">3D visualization + 2D CAD drawings.</p></div>
-            <div class="bg-[#f5f2eb] p-4"><p class="text-xs font-bold">03. Furniture &amp; 2D Support</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Furniture modeling and drafting.</p></div>
+            <div class="bg-[#f5f2eb] p-4 border border-[#c5a568]"><p class="text-xs font-bold">03. Furniture &amp; 2D Support</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Furniture modeling and drafting.</p></div>
           </div>
         </div>
       </div>
@@ -232,19 +236,19 @@
         </div>
         <div class="grid md:grid-cols-3 gap-5">
           <article class="portfolio-card">
-            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/1.webp" loading="lazy" alt="Three-storey boarding house facade with timber screens and glass balcony"></div>
+            <div class="image-frame gold-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/1.webp" loading="lazy" alt="Three-storey boarding house facade with timber screens and glass balcony"></div>
             <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + 2D CAD</span></div>
             <h3 class="text-2xl mt-2">Kos Putri Residence</h3>
             <p class="text-xs text-stone-400 leading-6 mt-2">Three-storey boarding house facade combining warm timber screens, glass balustrades, and a planted roof deck.</p>
           </article>
           <article class="portfolio-card">
-            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/5.webp" loading="lazy" alt="Compact kitchen with grey wood cabinetry and marble surfaces"></div>
+            <div class="image-frame gold-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/5.webp" loading="lazy" alt="Compact kitchen with grey wood cabinetry and marble surfaces"></div>
             <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + Furniture</span></div>
             <h3 class="text-2xl mt-2">Boarding House Kitchen</h3>
             <p class="text-xs text-stone-400 leading-6 mt-2">Compact L-shaped kitchen with marble worktops, open oak shelving, and efficient storage for daily use.</p>
           </article>
           <article class="portfolio-card">
-            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/9.webp" loading="lazy" alt="Double-height living room with marble feature wall and timber joinery"></div>
+            <div class="image-frame gold-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/9.webp" loading="lazy" alt="Double-height living room with marble feature wall and timber joinery"></div>
             <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + 2D CAD</span></div>
             <h3 class="text-2xl mt-2">Modern Family House</h3>
             <p class="text-xs text-stone-400 leading-6 mt-2">Double-height living concept balancing natural light, timber cabinetry, and functional family zoning.</p>
@@ -277,11 +281,11 @@
           <p class="text-sm text-stone-400 mt-4 max-w-sm leading-6">The collaborative duo behind EL CRIMSON Design Studio.</p>
           <div class="grid sm:grid-cols-2 gap-5 mt-9">
             <article>
-              <div class="image-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DanielTriskaPurna.A.webp" loading="lazy" alt="Daniel Triska Purna A."></div>
+              <div class="image-frame gold-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DanielTriskaPurna.A.webp" loading="lazy" alt="Daniel Triska Purna A."></div>
               <h3 class="text-lg mt-4">Daniel Triska Purna A.</h3><p class="gold text-[.65rem] tracking-wide mt-1">Lead Conceptual &amp; 3D Designer</p>
             </article>
             <article>
-              <div class="image-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DeanAldrin.R.webp" loading="lazy" alt="Dean Aldrin R."></div>
+              <div class="image-frame gold-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DeanAldrin.R.webp" loading="lazy" alt="Dean Aldrin R."></div>
               <h3 class="text-lg mt-4">Dean Aldrin R.</h3><p class="gold text-[.65rem] tracking-wide mt-1">Lead 2D Designer &amp; Client Coordinator</p>
             </article>
           </div>
