@@ -41,7 +41,7 @@
     .hero-overlay { background: linear-gradient(90deg, rgba(27,26,25,.97) 0%, rgba(27,26,25,.88) 37%, rgba(27,26,25,.30) 72%, rgba(27,26,25,.08) 100%); }
     .image-frame { overflow: hidden; background: #d8d2c7; }
     .image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .7s ease; }
-    .service-card .image-frame:not(.drafting-frame) img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .service-card .image-frame:not(.drafting-frame) img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
     .image-frame:hover img { transform: scale(1.035); }
     .gold-frame { border: 1px solid var(--gold); }
     .drafting-frame { background: #fff; }
@@ -159,7 +159,7 @@
 
         <div class="grid md:grid-cols-3 gap-5">
           <article class="service-card">
-            <div class="image-frame h-48"><img src="Asset/4.Residential&amp;InteriorDesign/Residential.webp" loading="lazy" alt="Residential facade with timber screens and planted roof deck"></div>
+            <div class="image-frame aspect-[4/3]"><img src="Asset/4.Residential&amp;InteriorDesign/Residential.webp" loading="lazy" alt="Residential facade with timber screens and planted roof deck"></div>
             <div class="p-6 md:p-7">
               <span class="section-kicker">01 / Residential</span>
               <h3 class="text-2xl mt-2 mb-3">Residential &amp; Interior Design</h3>
@@ -177,7 +177,7 @@
           </article>
 
           <article class="service-card">
-            <div class="image-frame h-48"><img src="Asset/5.Commercial&amp;CaffeDesign/Commercial.webp" loading="lazy" alt="Bintang Frozen retail store exterior visualization"></div>
+            <div class="image-frame aspect-[4/3]"><img src="Asset/5.Commercial&amp;CaffeDesign/Commercial.webp" loading="lazy" alt="Bintang Frozen retail store exterior visualization"></div>
             <div class="p-6 md:p-7">
               <span class="section-kicker">02 / Commercial</span>
               <h3 class="text-2xl mt-2 mb-3">Commercial &amp; Cafe Design</h3>
@@ -195,7 +195,7 @@
           </article>
 
           <article class="service-card">
-            <div class="image-frame drafting-frame h-48"><img src="Asset/6.Furniture&amp;TechnicalDrafting/TechnicalDrafting.webp" loading="lazy" alt="Section and foundation technical drawing in 2D CAD"></div>
+            <div class="image-frame drafting-frame aspect-[4/3]"><img src="Asset/6.Furniture&amp;TechnicalDrafting/TechnicalDrafting.webp" loading="lazy" alt="Section and foundation technical drawing in 2D CAD"></div>
             <div class="p-6 md:p-7">
               <span class="section-kicker">03 / Furniture</span>
               <h3 class="text-2xl mt-2 mb-3">Furniture Design &amp; Technical Drafting</h3>
