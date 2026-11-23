@@ -1,401 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EL CRIMSON Design Studio — Architectural, Interior and Furniture Drafting Studio.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22211f" />
+  <meta name="description" content="EL CRIMSON Design Studio — architectural, interior, and furniture design with 3D visualization and precise 2D CAD documentation." />
   <title>EL CRIMSON — Design Studio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #242321;
-      --paper: #f0ede6;
-      --cream: #e5dfd3;
-      --gold: #d2b77b;
-      --muted: #777064;
-      --white: #fbfaf7;
-      --line: rgba(36,35,33,.16);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, "Segoe UI", Arial, sans-serif;
+      --charcoal: #242321;
+      --charcoal-deep: #1b1a19;
+      --ivory: #f1eee7;
+      --ivory-soft: #e9e5dc;
+      --gold: #c5a568;
+      --gold-light: #d8bd83;
+      --ink: #292824;
+      --muted: #77736b;
+      --line-light: rgba(255,255,255,.13);
+      --line-dark: rgba(41,40,36,.14);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    button { font: inherit; }
-    .wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
-    .topbar { background: var(--ink); color: var(--white); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,.12); }
-    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: flex; align-items: center; gap: 13px; letter-spacing: .13em; font-size: 13px; font-weight: 700; }
-    .logo-slot { display: block; width: 54px; height: 36px; border-radius: 3px; overflow: hidden; background: transparent; flex-shrink: 0; }
-    .logo-slot img { width: 100%; height: 100%; object-fit: contain; }
-    .brand small { display: block; color: #bcb5a8; font-size: 9px; letter-spacing: .24em; font-weight: 400; margin-top: 3px; }
-    .links { display: flex; align-items: center; gap: 27px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #e4dfd6; }
-    .links a:hover { color: var(--gold); }
-    .menu-btn { display: none; border: 1px solid #777; background: transparent; color: white; padding: 8px 11px; cursor: pointer; }
-    .hero { background: var(--ink); color: var(--white); padding: 84px 0 76px; }
-    .eyebrow { color: var(--gold); letter-spacing: .24em; text-transform: uppercase; font-size: 10px; font-weight: 700; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 55px; align-items: center; }
-    h1 { font: 400 clamp(46px, 6vw, 78px)/1.04 var(--serif); letter-spacing: -.045em; margin: 22px 0 12px; max-width: 690px; }
-    .hero-tagline { font: italic 400 clamp(22px, 2.5vw, 30px)/1.3 var(--serif); color: var(--gold); margin: 0 0 22px; }
-    .hero-copy { color: #c9c3b9; max-width: 480px; font-size: 15px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
-    .btn { display: inline-block; padding: 14px 20px; background: var(--gold); color: var(--ink); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--gold); transition: .2s; }
-    .btn:hover { background: transparent; color: var(--gold); }
-    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,.35); }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .media-frame { border: 1px solid rgba(210,183,123,.35); overflow: hidden; background: #191817; }
-    .hero .media-frame img { width: 100%; height: auto; }
-    section { padding: 100px 0; scroll-margin-top: 82px; }
-    .section-head { display: flex; justify-content: space-between; gap: 35px; align-items: end; margin-bottom: 45px; }
-    .section-head h2 { font: 400 clamp(36px, 4vw, 53px)/1.1 var(--serif); letter-spacing: -.035em; margin: 12px 0 0; }
-    .section-head p { max-width: 390px; color: var(--muted); font-size: 13px; margin: 0; }
-    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
-    .about-grid .media-frame { border-color: var(--line); background: #e4ded2; }
-    .about-grid .media-frame img { width: 100%; height: 380px; object-fit: cover; }
-    .about-text p { color: #625d54; font-size: 14px; }
-    .statement { font: 400 24px/1.35 var(--serif); margin: 0 0 20px; }
-    .services { background: var(--cream); }
-    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .service { background: var(--cream); padding: 32px 28px 36px; min-height: 230px; }
-    .number { color: #a58c58; font: 22px var(--serif); }
-    .service h3 { font: 400 22px var(--serif); margin: 24px 0 10px; }
-    .service p { color: var(--muted); font-size: 12px; margin: 0; }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
-    .project { display: flex; flex-direction: column; }
-    .project-cover { padding: 0; width: 100%; border-color: var(--line); background: #e2ddd3; cursor: zoom-in; }
-    .project-cover img { width: 100%; height: 250px; object-fit: cover; transition: transform .5s ease; }
-    .project-cover:hover img { transform: scale(1.03); }
-    .project-meta { padding: 14px 0 12px; border-bottom: 1px solid var(--line); }
-    .project-meta h3 { font: 400 20px var(--serif); margin: 0 0 3px; }
-    .project-meta span { display: block; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; }
-    .thumb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
-    .thumb { padding: 0; width: 100%; border: 1px solid var(--line); overflow: hidden; background: #e2ddd3; cursor: zoom-in; }
-    .thumb img { width: 100%; height: 72px; object-fit: cover; transition: transform .4s ease; }
-    .thumb:hover img { transform: scale(1.07); }
-    .shot:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-    .team { background: var(--cream); }
-    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
-    .team-card { border: 1px solid var(--line); padding: 26px; display: grid; grid-template-columns: 100px 1fr; gap: 22px; align-items: center; background: var(--white); }
-    .avatar { height: 100px; width: 100px; border-radius: 4px; overflow: hidden; border: 1px solid #a99a7a; }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .team-card h3 { font: 400 20px var(--serif); margin: 0 0 4px; }
-    .team-card p { color: var(--muted); font-size: 11px; margin: 0; }
-    .team-role { color: var(--ink); }
-    .team-desc { margin-top: 6px; }
-    .contact { background: var(--ink); color: var(--white); }
-    .contact .section-head p { color: #bcb5a8; }
-    .contact-panel { border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); padding: 32px 0; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .contact-panel h3 { font: 400 clamp(28px, 4vw, 43px) var(--serif); margin: 0; }
-    .contact-panel p { color: #bcb5a8; font-size: 12px; margin: 8px 0 0; }
-    .contact-line { font-size: 11px; color: #aaa296; margin-top: 22px; }
-    footer { background: #1b1a19; color: #c8c1b6; padding: 28px 0; font-size: 10px; letter-spacing: .08em; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .footer-inner span:last-child { color: #91897d; }
-    .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 32px; background: rgba(20,19,18,.95); }
-    .lightbox.open { display: flex; }
-    .lightbox img { max-width: min(1100px, 100%); max-height: calc(100vh - 110px); object-fit: contain; border: 1px solid rgba(210,183,123,.4); }
-    .lightbox-close { position: absolute; top: 20px; right: 22px; padding: 9px 14px; border: 1px solid rgba(255,255,255,.4); background: transparent; color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; cursor: pointer; }
-    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
-    @media (max-width: 980px) {
-      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-      .portfolio-grid .project:last-child { grid-column: span 2; }
-      .portfolio-grid .project:last-child .project-cover img { height: 320px; }
-      .portfolio-grid .project:last-child .thumb img { height: 96px; }
-    }
-    @media (max-width: 760px) {
-      .wrap { width: min(100% - 34px, 560px); }
-      .nav { min-height: 70px; }
-      .menu-btn { display: block; }
-      .links { display: none; position: absolute; top: 70px; left: 0; right: 0; padding: 20px 24px 24px; background: var(--ink); flex-direction: column; align-items: flex-start; gap: 18px; border-top: 1px solid #555; }
-      .links.open { display: flex; }
-      section { scroll-margin-top: 70px; }
-      .hero { padding: 65px 0 55px; }
-      .hero-grid, .about-grid, .team-grid { grid-template-columns: 1fr; gap: 35px; }
-      .about-grid .media-frame img { height: 280px; }
-      section { padding: 70px 0; }
-      .section-head { display: block; margin-bottom: 30px; }
-      .section-head p { margin-top: 18px; }
-      .service-grid { grid-template-columns: 1fr; }
-      .service { min-height: 0; }
-      .portfolio-grid { grid-template-columns: 1fr; gap: 30px; }
-      .portfolio-grid .project:last-child { grid-column: auto; }
-      .project-cover img, .portfolio-grid .project:last-child .project-cover img { height: 250px; }
-      .portfolio-grid .project:last-child .thumb img { height: 72px; }
-      .contact-panel { display: block; }
-      .contact-panel .btn { margin-top: 24px; }
+    body { margin: 0; font-family: 'DM Sans', sans-serif; background: var(--ivory); color: var(--ink); }
+    h1,h2,h3,.display { font-family: 'Playfair Display', serif; }
+    .bg-charcoal { background: var(--charcoal); }
+    .bg-deep { background: var(--charcoal-deep); }
+    .bg-ivory { background: var(--ivory); }
+    .gold { color: var(--gold); }
+    .gold-bg { background: var(--gold); }
+    .gold-bg:hover { background: var(--gold-light); }
+    .section-kicker { color: #a98343; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; }
+    .section-kicker-light { color: var(--gold-light); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 700; }
+    .hairline { height: 1px; background: var(--line-dark); }
+    .hairline-light { height: 1px; background: var(--line-light); }
+    .hero-overlay { background: linear-gradient(90deg, rgba(27,26,25,.97) 0%, rgba(27,26,25,.88) 37%, rgba(27,26,25,.30) 72%, rgba(27,26,25,.08) 100%); }
+    .image-frame { overflow: hidden; background: #d8d2c7; }
+    .image-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+    .image-frame:hover img { transform: scale(1.035); }
+    .btn-gold { display:inline-flex; align-items:center; gap:.7rem; background:var(--gold); color:#211f1b; padding:.85rem 1.25rem; font-size:.75rem; font-weight:700; letter-spacing:.06em; transition:.2s; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); }
+    .btn-outline-light { display:inline-flex; align-items:center; gap:.7rem; border:1px solid rgba(255,255,255,.42); color:#fff; padding:.85rem 1.25rem; font-size:.75rem; font-weight:600; letter-spacing:.06em; transition:.2s; }
+    .btn-outline-light:hover { border-color:var(--gold); color:var(--gold-light); }
+    .service-card { border:1px solid var(--line-dark); background:#f7f4ed; }
+    .service-card ul li { position:relative; padding-left:1.1rem; }
+    .service-card ul li:before { content:"✓"; position:absolute; left:0; color:#a98343; font-weight:700; }
+    .nav-link { color:rgba(255,255,255,.82); font-size:.75rem; transition:color .2s; }
+    .nav-link:hover, .nav-link.active { color:var(--gold-light); }
+    .portfolio-card img { transition:transform .65s ease; }
+    .portfolio-card:hover img { transform:scale(1.045); }
+    .team-photo { filter:grayscale(18%); }
+    @media (max-width: 767px) {
+      .hero-overlay { background:linear-gradient(90deg, rgba(27,26,25,.94), rgba(27,26,25,.74)); }
+      .mobile-menu.open { display:flex; }
     }
   </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="EL CRIMSON home">
-        <span class="logo-slot">
-          <img src="Asset/1.Logoperusahaan/Logo.webp" alt="El Crimson Design Studio logo" width="54" height="36">
+
+<body class="antialiased">
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#1b1a19]/95 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 h-[76px] flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3" aria-label="EL CRIMSON home">
+        <img src="Asset/1.Logoperusahaan/LOGO.png" alt="EL CRIMSON logo" class="w-12 h-10 object-contain" onerror="this.style.display='none'">
+        <span class="flex flex-col text-white leading-tight">
+          <span class="text-[.82rem] font-bold tracking-[.23em]">EL CRIMSON</span>
+          <span class="text-[.48rem] tracking-[.38em] text-stone-400 mt-1">DESIGN STUDIO</span>
         </span>
-        <span>EL CRIMSON<small>DESIGN STUDIO</small></span>
       </a>
-      <button class="menu-btn" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">MENU ☰</button>
-      <nav class="links" id="site-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#team">Team</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a href="#contact" class="gold-bg text-[#211f1b] text-xs font-bold px-5 py-3 hover:-translate-y-0.5 transition">Start a Project&nbsp; →</a>
       </nav>
+
+      <button id="menuButton" class="md:hidden border border-white/40 text-white px-4 py-2 text-xs tracking-widest" aria-expanded="false" aria-controls="mobileMenu">MENU ☰</button>
     </div>
+    <nav id="mobileMenu" class="mobile-menu hidden md:hidden flex-col gap-5 px-6 py-6 bg-[#1b1a19] border-t border-white/10">
+      <a class="nav-link" href="#home">Home</a><a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a><a class="nav-link" href="#portfolio">Portfolio</a>
+      <a class="nav-link" href="#team">Team</a><a class="nav-link" href="#contact">Contact</a>
+      <a href="#contact" class="gold-bg text-[#211f1b] text-xs font-bold px-5 py-3 text-center">Start a Project →</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">Architectural, Interior and Furniture Drafting Studio</div>
-          <h1>Shape Your Future</h1>
-          <p class="hero-tagline">Dream it. Plan it. Achieve it.</p>
-          <p class="hero-copy">We are a multidisciplinary architectural, interior, and furniture design studio operating 100% remotely to support homeowners, business owners, architects, and contractors worldwide.</p>
-          <div class="actions">
-            <a class="btn" href="#portfolio">Explore Our Work</a>
-            <a class="btn btn-outline" href="#contact">Start a Project</a>
+    <!-- HERO -->
+    <section id="home" class="relative min-h-[680px] md:min-h-[720px] bg-deep flex items-center pt-[76px]">
+      <div class="absolute inset-0">
+        <img src="Asset/3.SecondHeroImage/SecondHeroImage.webp" alt="Sunlit double-height living room with timber feature wall" class="w-full h-full object-cover object-center" onerror="this.style.display='none'">
+        <div class="absolute inset-0 hero-overlay"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-8 py-20">
+        <div class="max-w-[520px]">
+          <p class="section-kicker-light mb-6">Architectural · Interior · Furniture Design</p>
+          <h1 class="text-white text-5xl md:text-7xl leading-[1.02] font-normal">Shape Your<br>Future</h1>
+          <p class="display italic text-xl md:text-2xl text-stone-200 mt-5">Dream it. Plan it. Achieve it.</p>
+          <div class="w-16 h-px gold-bg my-7"></div>
+          <p class="text-stone-300 text-sm leading-7 max-w-md">
+            We are a multidisciplinary design studio supporting homeowners, business owners, architects, and contractors through thoughtful design and precise technical documentation.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="#portfolio" class="btn-gold">Explore Our Work <span>→</span></a>
+            <a href="#contact" class="btn-outline-light">Start a Project <span>↗</span></a>
           </div>
-        </div>
-        <div class="media-frame">
-          <img src="Asset/2.Displayatasdisebelah(shapeyourfuture)/Herobaru.webp" alt="Double-height living room with a marble TV wall, timber shelving, and a mezzanine balcony" width="2752" height="1536" fetchpriority="high">
+          <a href="#about" class="inline-flex items-center gap-3 text-stone-300 text-[.68rem] mt-12 tracking-wide"><span class="w-7 h-7 rounded-full border border-[#c5a568] flex items-center justify-center gold">↓</span> Scroll to explore</a>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <div class="wrap about-grid">
-        <div class="media-frame">
-          <img src="Asset/6.Portountukrumahtinggal/Ruangtamu.webp" alt="Open living area with a double-height ceiling, mezzanine balcony, and indoor plants" loading="lazy" decoding="async">
+    <!-- ABOUT -->
+    <section id="about" class="bg-ivory py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="lg:col-span-4">
+          <p class="section-kicker mb-4">About Us <span class="inline-block w-12 h-px bg-[#b9975c] align-middle ml-2"></span></p>
+          <h2 class="text-4xl md:text-[3.2rem] leading-[1.08]">Transforming Ideas into Timeless Spaces.</h2>
+          <p class="text-sm text-stone-600 leading-7 mt-6">
+            Led by a collaborative duo of a technical drafting specialist and a civil engineering graduate, we deliver accurate spatial layouts, bespoke furniture detailing, and practical design support.
+          </p>
+          <p class="text-sm text-stone-600 leading-7 mt-3">
+            From the first concept to the final drawing, every project is shaped by creativity, clear communication, and precision.
+          </p>
+          <a href="#services" class="inline-flex items-center gap-3 text-xs font-bold tracking-wide text-[#94713b] mt-7">Discover Our Approach <span>→</span></a>
         </div>
-        <div class="about-text">
-          <div class="eyebrow">About Us</div>
-          <h2 class="statement">Transforming rough concepts into clean, build-ready plans through precise 2D CAD and 3D modeling.</h2>
-          <p>Led by a collaborative duo of a technical drafting specialist and a civil engineering graduate, our studio ensures dual-tier quality control on every project. We deliver accurate spatial layouts, bespoke furniture detailing, and clear technical documentation seamlessly across time zones.</p>
-          <p><strong>Our Philosophy:</strong> No design is out of reach. Every stroke of art is born from perspective, fueled by an active imagination, and perfected by precision.</p>
-          <a class="btn" href="#services">Discover Our Services</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Mission &amp; Vision</div><h2>Our Expertise &amp; Mission</h2></div>
-          <p>Versatile design, accountable engineering standards, and professional remote collaboration worldwide.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service">
-            <div class="number">01</div>
-            <h3>Versatile &amp; Creative Design</h3>
-            <p>Transform ideas for residences, cafes, and custom furniture into innovative, functional, and build-ready 2D CAD and 3D plans.</p>
-          </article>
-          <article class="service">
-            <div class="number">02</div>
-            <h3>Accountable Engineering</h3>
-            <p>Uphold strict responsibility and dual-tier quality control on every spatial layout and furniture detail for structural reliability.</p>
-          </article>
-          <article class="service">
-            <div class="number">03</div>
-            <h3>Remote Collaboration</h3>
-            <p>Deliver transparent communication, timely execution, and dedicated support seamlessly across global time zones.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Selected Work</div><h2>Our Portfolio</h2></div>
-          <p>A selection of projects reflecting our approach to design, planning, and creative problem-solving.</p>
-        </div>
-        <div class="portfolio-grid">
-          <article class="project">
-            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: Bintang Frozen store facade">
-              <img src="Asset/4.Portountukprojecttoko/1.webp" alt="Bintang Frozen store facade with timber signage, glass frontage, and a wooden cart" loading="lazy" decoding="async">
-            </button>
-            <div class="project-meta"><h3>Bintang Frozen Store</h3><span>Commercial · 5 Photos</span></div>
-            <div class="thumb-grid">
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: front elevation of Bintang Frozen">
-                <img src="Asset/4.Portountukprojecttoko/2.webp" alt="Front elevation of Bintang Frozen with a landscaped entrance" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: angled view of the Bintang Frozen shopfront">
-                <img src="Asset/4.Portountukprojecttoko/3.webp" alt="Angled view of the Bintang Frozen shopfront and outdoor cart" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: retail interior of Bintang Frozen">
-                <img src="Asset/4.Portountukprojecttoko/4.webp" alt="Bright retail interior with wine shelving and a timber counter" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: wine display inside Bintang Frozen">
-                <img src="Asset/4.Portountukprojecttoko/5.webp" alt="Wine display shelves and chest freezers inside Bintang Frozen" loading="lazy" decoding="async">
-              </button>
-            </div>
-          </article>
-
-          <article class="project">
-            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: minimalist corner bedroom">
-              <img src="Asset/5.Portountukkamarkos/KamarPojok1.webp" alt="Minimalist corner bedroom with a timber wardrobe and sheer curtains" loading="lazy" decoding="async">
-            </button>
-            <div class="project-meta"><h3>Minimalist Boarding House</h3><span>Residential · 6 Photos</span></div>
-            <div class="thumb-grid">
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: compact boarding room">
-                <img src="Asset/5.Portountukkamarkos/Kamar1.webp" alt="Compact boarding room with a single bed and mirrored wardrobe" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: boarding room with floating desk">
-                <img src="Asset/5.Portountukkamarkos/Kamar2.webp" alt="Boarding room with a floating desk, window, and timber door" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: boarding room with ensuite bathroom">
-                <img src="Asset/5.Portountukkamarkos/Kamar3.webp" alt="Boarding room with an ensuite bathroom and built-in study desk" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: ensuite bathroom">
-                <img src="Asset/5.Portountukkamarkos/KamarMandi1.webp" alt="Ensuite bathroom with a walk-in shower and dark tiled floor" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: corner room with cove lighting">
-                <img src="Asset/5.Portountukkamarkos/KamarPojok2.webp" alt="Corner room with a wardrobe, gold cove lighting, and a single bed" loading="lazy" decoding="async">
-              </button>
-            </div>
-          </article>
-
-          <article class="project">
-            <button class="media-frame project-cover shot" type="button" data-lightbox aria-label="View larger: modern family house facade">
-              <img src="Asset/6.Portountukrumahtinggal/Tampakdepan1.webp" alt="Modern two-storey house facade with a pergola carport and breeze-block screen" loading="lazy" decoding="async">
-            </button>
-            <div class="project-meta"><h3>Modern Family House</h3><span>Residential · 8 Photos</span></div>
-            <div class="thumb-grid">
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: house front facade">
-                <img src="Asset/6.Portountukrumahtinggal/Tampakdepan2.webp" alt="House front facade with a covered carport and planted entrance courtyard" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: entrance and carport">
-                <img src="Asset/6.Portountukrumahtinggal/Tampakdepan3.webp" alt="Close view of the entrance, breeze-block wall, and carport" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: family room with timber feature wall">
-                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga1.webp" alt="Double-height family room with a slatted timber feature wall" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: family room with marble TV wall">
-                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga2.webp" alt="Family room with a marble TV wall and timber media console" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: living area with mezzanine">
-                <img src="Asset/6.Portountukrumahtinggal/Ruangkeluarga3.webp" alt="Living area with a bookcase, TV wall, and mezzanine balcony" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: master bedroom">
-                <img src="Asset/6.Portountukrumahtinggal/Kamartidur.webp" alt="Master bedroom with a timber bed frame, wardrobe, and garden window" loading="lazy" decoding="async">
-              </button>
-              <button class="thumb shot" type="button" data-lightbox aria-label="View larger: galley kitchen">
-                <img src="Asset/6.Portountukrumahtinggal/Dapur.webp" alt="Galley kitchen with a marble backsplash and timber cabinetry" loading="lazy" decoding="async">
-              </button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="team" id="team">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">The Organization</div><h2>Our Team</h2></div>
-          <p>The collaborative duo behind EL CRIMSON Design Studio.</p>
-        </div>
-        <div class="team-grid">
-          <div class="team-card">
-            <div class="avatar"><img src="Asset/3.Fotountuknamatim/DanielTriskaPurna.A.webp" alt="Portrait of Daniel Triska Purna A." loading="lazy" decoding="async"></div>
-            <div>
-              <h3>Daniel Triska Purna A.</h3>
-              <p class="team-role"><strong>Lead Conceptual &amp; 3D Designer</strong></p>
-              <p class="team-desc">Shapes initial design ideas into immersive 3D modeling and practical structural planning.</p>
-            </div>
+        <div class="lg:col-span-8">
+          <div class="image-frame h-[300px] md:h-[430px]">
+            <img src="Asset/2.HeroImage/HeroImage.webp" loading="lazy" alt="Double-height living room with marble feature wall and warm timber joinery">
           </div>
-          <div class="team-card">
-            <div class="avatar"><img src="Asset/3.Fotountuknamatim/DeanAldrin.R.webp" alt="Portrait of Dean Aldrin R." loading="lazy" decoding="async"></div>
-            <div>
-              <h3>Dean Aldrin R.</h3>
-              <p class="team-role"><strong>Lead 2D Designer &amp; Client Coordinator</strong></p>
-              <p class="team-desc">Drives creative conceptualization, precision 2D CAD technical detailing, and client coordination.</p>
+          <p class="text-[.62rem] tracking-[.16em] uppercase text-stone-500 mt-3 text-right">Design perspective · Residential interior</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-[#e8e4dc] py-20 md:py-24 border-y border-black/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="max-w-xl">
+            <p class="section-kicker mb-4">Our Services <span class="inline-block w-12 h-px bg-[#b9975c] align-middle ml-2"></span></p>
+            <h2 class="text-4xl md:text-5xl leading-tight">Tailored Design<br>Solutions</h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-stone-600">From concept to technical execution, we provide design services that connect visual ideas with clear, practical drawings.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+          <article class="service-card">
+            <div class="image-frame h-48"><img src="Asset/4.Residential&amp;InteriorDesign/Residential.webp" loading="lazy" alt="Residential facade with timber screens and planted roof deck"></div>
+            <div class="p-6 md:p-7">
+              <span class="section-kicker">01 / Residential</span>
+              <h3 class="text-2xl mt-2 mb-3">Residential &amp; Interior Design</h3>
+              <p class="text-xs leading-6 text-stone-600 mb-5">Functional planning and visualization for family homes, renovations, and compact living spaces.</p>
+              <div class="hairline mb-4"></div>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">3D Visualization</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1 mb-5">
+                <li>3D Architectural Visualization</li><li>3D Interior Rendering</li><li>Material, lighting &amp; ambience concepts</li>
+              </ul>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">2D Technical Drawings</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1">
+                <li>2D CAD Floor Plans</li><li>Elevations &amp; Sections</li><li>Spatial Layout &amp; Space Planning</li>
+              </ul>
             </div>
+          </article>
+
+          <article class="service-card">
+            <div class="image-frame h-48"><img src="Asset/5.Commercial&amp;CaffeDesign/Commercial.webp" loading="lazy" alt="Bintang Frozen retail store exterior visualization"></div>
+            <div class="p-6 md:p-7">
+              <span class="section-kicker">02 / Commercial</span>
+              <h3 class="text-2xl mt-2 mb-3">Commercial &amp; Cafe Design</h3>
+              <p class="text-xs leading-6 text-stone-600 mb-5">Inviting and operational concepts for cafes, coffeeshops, and small-to-medium commercial spaces.</p>
+              <div class="hairline mb-4"></div>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">3D Visualization</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1 mb-5">
+                <li>3D Exterior &amp; Interior Visualization</li><li>3D Ambience &amp; Material Concepts</li><li>Brand-aligned visual direction</li>
+              </ul>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">2D Technical Drawings</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1">
+                <li>2D CAD Layout Drawings</li><li>Furniture &amp; Equipment Placement</li><li>Technical Drawings for Site Execution</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="image-frame h-48"><img src="Asset/6.Furniture&amp;TechnicalDrafting/TechnicalDrafting.webp" loading="lazy" alt="Section and foundation technical drawing in 2D CAD"></div>
+            <div class="p-6 md:p-7">
+              <span class="section-kicker">03 / Furniture</span>
+              <h3 class="text-2xl mt-2 mb-3">Furniture Design &amp; Technical Drafting</h3>
+              <p class="text-xs leading-6 text-stone-600 mb-5">Custom loose and built-in furniture designed around exact dimensions and fabrication needs.</p>
+              <div class="hairline mb-4"></div>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">3D Visualization</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1 mb-5">
+                <li>3D Custom Furniture Modeling</li><li>3D Cabinetry Visualization</li><li>Form, finish &amp; material previews</li>
+              </ul>
+              <p class="text-[.65rem] font-bold tracking-[.12em] uppercase mb-3">2D Technical Drawings</p>
+              <ul class="text-xs leading-6 text-stone-700 space-y-1">
+                <li>2D Furniture Detail Drawings</li><li>Dimensions &amp; Joinery Details</li><li>Workshop-Ready Documentation</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-8 border border-black/15 p-6 md:p-8 flex flex-col md:flex-row gap-5 md:items-center justify-between">
+          <div>
+            <p class="section-kicker mb-2">Flexible Collaboration</p>
+            <h3 class="text-2xl">Freelance Engagement Packages</h3>
+            <p class="text-xs text-stone-600 mt-2">Project scope and rates are tailored to area, complexity, and required deliverables.</p>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3 md:max-w-[650px] w-full">
+            <div class="bg-[#f5f2eb] p-4"><p class="text-xs font-bold">01. Concept &amp; 3D Visual</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Layout options and 3D previews.</p></div>
+            <div class="bg-[#f5f2eb] p-4 border border-[#c5a568]"><p class="text-xs font-bold">02. Complete Design</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">3D visualization + 2D CAD drawings.</p></div>
+            <div class="bg-[#f5f2eb] p-4"><p class="text-xs font-bold">03. Furniture &amp; 2D Support</p><p class="text-[.68rem] text-stone-600 leading-5 mt-2">Furniture modeling and drafting.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Have a Project in Mind?</div><h2>Let's Create<br>Something Together.</h2></div>
-          <p>Get in touch with our remote-first team dedicated to fast, frictionless design and precise technical execution.</p>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="bg-charcoal text-white py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-11">
+          <div><p class="section-kicker-light mb-4">Selected Work <span class="inline-block w-12 h-px bg-[#c5a568] align-middle ml-2"></span></p><h2 class="text-4xl md:text-5xl">Our Portfolio</h2></div>
+          <p class="text-sm text-stone-400 leading-6 max-w-md">A selection of projects reflecting our approach to design, planning, and practical problem-solving.</p>
         </div>
-        <div class="contact-panel">
-          <div><h3>Start a Conversation.</h3><p>Kec. Kedungkandang, Kota Malang, Jawa Timur 65138</p></div>
-          <a class="btn" href="mailto:elcrimsonstudio@gmail.com">Email Our Studio</a>
+        <div class="grid md:grid-cols-3 gap-5">
+          <article class="portfolio-card">
+            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/1.webp" loading="lazy" alt="Three-storey boarding house facade with timber screens and glass balcony"></div>
+            <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + 2D CAD</span></div>
+            <h3 class="text-2xl mt-2">Kos Putri Residence</h3>
+            <p class="text-xs text-stone-400 leading-6 mt-2">Three-storey boarding house facade combining warm timber screens, glass balustrades, and a planted roof deck.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/5.webp" loading="lazy" alt="Compact kitchen with grey wood cabinetry and marble surfaces"></div>
+            <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + Furniture</span></div>
+            <h3 class="text-2xl mt-2">Boarding House Kitchen</h3>
+            <p class="text-xs text-stone-400 leading-6 mt-2">Compact L-shaped kitchen with marble worktops, open oak shelving, and efficient storage for daily use.</p>
+          </article>
+          <article class="portfolio-card">
+            <div class="image-frame aspect-[4/3]"><img src="Asset/7.OurPortofolio/9.webp" loading="lazy" alt="Double-height living room with marble feature wall and timber joinery"></div>
+            <div class="flex justify-between gap-3 text-[.62rem] tracking-widest uppercase gold mt-4"><span>Residential</span><span>3D + 2D CAD</span></div>
+            <h3 class="text-2xl mt-2">Modern Family House</h3>
+            <p class="text-xs text-stone-400 leading-6 mt-2">Double-height living concept balancing natural light, timber cabinetry, and functional family zoning.</p>
+          </article>
         </div>
-        <p class="contact-line">Email: elcrimsonstudio@gmail.com &nbsp; · &nbsp; WhatsApp: +62 821-4270-0832</p>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow" class="bg-ivory py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="grid lg:grid-cols-4 gap-8 items-start">
+          <div class="lg:col-span-1"><p class="section-kicker mb-4">Our Workflow</p><h2 class="text-4xl leading-tight">Seamless Remote Process</h2><p class="text-xs text-stone-600 leading-6 mt-4">From initial brief to final handover, in a clear and structured workflow.</p></div>
+          <div class="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center"><div class="w-14 h-14 rounded-full border border-[#b9975c] text-[#a98343] flex items-center justify-center text-xl mx-auto mb-4">01</div><h3 class="text-xl">Brief &amp; Scope</h3><p class="text-xs text-stone-600 leading-5 mt-2">Share dimensions, references, goals, and required deliverables.</p></div>
+            <div class="text-center"><div class="w-14 h-14 rounded-full border border-[#b9975c] text-[#a98343] flex items-center justify-center text-xl mx-auto mb-4">02</div><h3 class="text-xl">Design &amp; 3D</h3><p class="text-xs text-stone-600 leading-5 mt-2">Develop layouts and 3D models for review of form and ambience.</p></div>
+            <div class="text-center"><div class="w-14 h-14 rounded-full border border-[#b9975c] text-[#a98343] flex items-center justify-center text-xl mx-auto mb-4">03</div><h3 class="text-xl">Revision</h3><p class="text-xs text-stone-600 leading-5 mt-2">Refine the approved direction and prepare measured 2D CAD drawings.</p></div>
+            <div class="text-center"><div class="w-14 h-14 rounded-full border border-[#b9975c] text-[#a98343] flex items-center justify-center text-xl mx-auto mb-4">04</div><h3 class="text-xl">Final Handover</h3><p class="text-xs text-stone-600 leading-5 mt-2">Receive organized 3D renders and 2D CAD/PDF documentation.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM + CONTACT -->
+    <section id="team" class="bg-deep text-white py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-6">
+          <p class="section-kicker-light mb-4">The Organization</p>
+          <h2 class="text-4xl md:text-5xl">Our Team</h2>
+          <p class="text-sm text-stone-400 mt-4 max-w-sm leading-6">The collaborative duo behind EL CRIMSON Design Studio.</p>
+          <div class="grid sm:grid-cols-2 gap-5 mt-9">
+            <article>
+              <div class="image-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DanielTriskaPurna.A.webp" loading="lazy" alt="Daniel Triska Purna A."></div>
+              <h3 class="text-lg mt-4">Daniel Triska Purna A.</h3><p class="gold text-[.65rem] tracking-wide mt-1">Lead Conceptual &amp; 3D Designer</p>
+            </article>
+            <article>
+              <div class="image-frame aspect-[4/4] max-w-[220px]"><img class="team-photo" src="Asset/8.FotoTim/DeanAldrin.R.webp" loading="lazy" alt="Dean Aldrin R."></div>
+              <h3 class="text-lg mt-4">Dean Aldrin R.</h3><p class="gold text-[.65rem] tracking-wide mt-1">Lead 2D Designer &amp; Client Coordinator</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="contact" class="lg:col-span-6 lg:border-l border-white/15 lg:pl-12 flex flex-col justify-center">
+          <p class="section-kicker-light mb-4">Have a Project in Mind?</p>
+          <h2 class="text-4xl md:text-5xl leading-tight">Let’s Create Something Together.</h2>
+          <p class="text-sm text-stone-400 leading-7 mt-5 max-w-md">Get in touch with our remote-first team for thoughtful design, clear communication, and precise technical execution.</p>
+          <p class="text-xs text-stone-500 mt-5">Kec. Kedungkandang, Kota Malang, Jawa Timur 65138 · Operating 100% Remotely</p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a class="btn-gold" href="https://wa.me/6282142700832?text=Hello%20EL%20CRIMSON%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20design%20project." target="_blank" rel="noopener">Chat on WhatsApp →</a>
+            <a class="btn-outline-light" href="mailto:elcrimsonstudio@gmail.com">Email Our Studio ↗</a>
+          </div>
+          <div class="hairline-light mt-8 mb-5"></div>
+          <div class="grid sm:grid-cols-2 gap-4 text-xs text-stone-400">
+            <p><span class="gold">Email</span><br>elcrimsonstudio@gmail.com</p>
+            <p><span class="gold">WhatsApp</span><br>+62 821-4270-0832</p>
+            <p><span class="gold">Instagram</span><br><a href="https://instagram.com/elcrimsonstudio" target="_blank" rel="noopener" class="hover:text-white">@elcrimsonstudio</a></p>
+            <p><span class="gold">Availability</span><br>Remote collaboration worldwide</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© <span id="year"></span> EL CRIMSON DESIGN STUDIO</span>
-      <span>Dream it. Plan it. Achieve it.</span>
+  <!-- FOOTER -->
+  <footer class="bg-[#151413] border-t border-white/10 py-7">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[.65rem] text-stone-500">
+      <div class="flex items-center gap-3">
+        <img src="Asset/1.Logoperusahaan/LOGO.png" alt="" class="w-9 h-8 object-contain" onerror="this.style.display='none'">
+        <span class="tracking-[.22em] text-stone-300 font-bold">EL CRIMSON <small class="block text-[.45rem] tracking-[.35em] text-stone-500 font-normal">DESIGN STUDIO</small></span>
+      </div>
+      <span class="display italic text-stone-300 text-sm">Dream it. Plan it. Achieve it.</span>
+      <span>© 2026 EL CRIMSON DESIGN STUDIO</span>
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
-    <button class="lightbox-close" type="button">Close ✕</button>
-    <img src="" alt="">
-  </div>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const menuButton = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.links');
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
     menuButton.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(open));
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
     });
-    navLinks.querySelectorAll('a').forEach((link) => {
+    mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
+        mobileMenu.classList.remove('open');
         menuButton.setAttribute('aria-expanded', 'false');
       });
-    });
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = lightbox.querySelector('img');
-    const lightboxClose = lightbox.querySelector('.lightbox-close');
-    let lastFocused = null;
-
-    function openLightbox(button) {
-      const image = button.querySelector('img');
-      lastFocused = button;
-      lightboxImage.src = image.currentSrc || image.src;
-      lightboxImage.alt = image.alt;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      lightboxClose.focus();
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (lastFocused) lastFocused.focus();
-    }
-
-    document.querySelectorAll('[data-lightbox]').forEach((button) => {
-      button.addEventListener('click', () => openLightbox(button));
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
   </script>
 </body>
